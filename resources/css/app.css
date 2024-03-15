@@ -1,0 +1,143 @@
+@import "text";
+
+.container-fluid {
+  max-width: 1520px;
+  width: 100%;
+}
+
+.nav-link:hover,
+.navbar-nav .active:hover {
+  padding: 0px;
+  background: #34b5b8;
+  color: white !important;
+}
+
+.navbar-nav .active {
+
+  color: white !important;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 15px;
+  border: solid 2px #34b5b8;
+}
+
+.search-box ul {
+  list-style: none;
+  padding: 0px;
+
+  position: absolute;
+  margin: 0;
+  z-index: 200;
+  background: white;
+
+}
+
+.search-box ul li {
+
+  padding: 4px;
+  margin-bottom: 1px;
+}
+
+
+
+.search-box ul li:hover {
+  cursor: pointer;
+}
+
+#showDiv {
+  max-height: 450px;
+  overflow: scroll;
+  width: 350px;
+
+}
+
+
+#btn-copy {
+  cursor: pointer;
+}
+
+/***********************search**********************/
+
+#input-search-home,
+#input-search-home1 {
+  background-color: #a678da54;
+  color: white !important;
+}
+
+#input-search-home::placeholder,
+#input-search-home1::placeholder {
+  color: white !important;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  
+  max-height: 500px;
+  min-height: 250px;
+}
+
+.ui-autocomplete>li>div {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+
+.ui-state-hover,
+.ui-state-active,
+.ui-state-focus {
+  text-decoration: none;
+  color: white !important;
+  background-color: #51cbce  !important;
+  cursor: pointer;
+}
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
