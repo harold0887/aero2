@@ -47,6 +47,7 @@
         </div>
         <div class="col-8 border rounded py-2 bg-white contenido-texto-internal" id="message-internal">
             <p>Buen día, {{$message->name}}</p>
+            <br>
             {!!$message->message!!}
         </div>
         <div class="col-auto">

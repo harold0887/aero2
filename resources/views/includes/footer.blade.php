@@ -1,5 +1,5 @@
 <footer class="footer footer-black footer-white text-primary {{$navbarClass}}">
-    <div class="container border border-danger">
+    <div class="container">
         <div class="row">
             <!-- <nav class="footer-nav">
                 <ul>

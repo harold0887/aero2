@@ -2,7 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Correo;
+
+use App\Models\Correo;
 use Livewire\Component;
 use Livewire\WithPagination;
 

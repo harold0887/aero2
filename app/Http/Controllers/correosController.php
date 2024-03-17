@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Correo;
+use App\Models\Correo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;
 
 class correosController extends Controller
@@ -47,6 +48,7 @@ class correosController extends Controller
                 'email' => request('email'),
                 'area' => request('area'),
                 'comentario' => request('comment'),
+                'user_id' => Auth::user()->id,
             ]);
 
 

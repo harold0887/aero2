@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Internal;
+
+use App\Models\Internal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\QueryException;

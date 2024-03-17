@@ -4,7 +4,6 @@
             <div class="col-12 border-bottom ">
                 <h4 class="m-0  text-center">Correos</h4>
             </div>
-
             <div class="col-12 ">
                 <div class="row  justify-content-between">
                     <div class="col-12 col-md-auto mt-2 align-self-center">
@@ -25,7 +24,7 @@
                     </div>
                     <div class="col-12   col-md-5 mt-2 align-self-center">
                         <div class="input-group no-border">
-                            <input type="text" class="form-control" placeholder="Buscar por área, email o comentario..." wire:model="search">
+                            <input type="text" class="form-control" placeholder="Buscar por área, email o comentario..." wire:model.live='search'>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="nc-icon nc-zoom-split"></i>
@@ -46,9 +45,6 @@
                         <table id="datatable" class="table table-striped table-bordered " cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-
-
-
                                     <th scope="col" style="cursor:pointer" wire:click="setSort('email')">Email
                                         @if($sortField=='email')
                                         @if($sortDirection=='asc')
@@ -82,32 +78,21 @@
                                         <i class="fa-solid fa-sort mr-1"></i>
                                         @endif
                                     </th>
-
-
                                     <th scope="col">Acciones</th>
-
                                 </tr>
                             </thead>
-
                             <tbody>
                                 @foreach($correos as $correo)
                                 <tr>
-
-
                                     <td>{{ $correo->email }}</td>
                                     <td>{{ $correo->area }}</td>
                                     <td>{{ $correo->comentario }}</td>
-
-
-
-
                                     <td class="text-center">
                                         <div class="btn-group">
-
                                             <a href="{{ route('correo.edit',$correo->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit "><i class="material-icons">edit</i></a>
 
                                             <form method="post" action="{{ route('correo.destroy', $correo->id) }} ">
-                                                <input type="text" hidden value="{{$correo->email}}">
+                                                <input type="text" hidden value="el correo {{$correo->email}}">
                                                 <button class=" btn btn-danger btn-link btn-icon btn-sm remove show-alert-delete-email">
                                                     @csrf
                                                     @method('DELETE')
@@ -118,7 +103,6 @@
 
                                     </td>
                                 </tr>
-
                                 @endforeach
                             </tbody>
                         </table>
@@ -137,5 +121,3 @@
         </div>
     </div>
 </div>
-
-@include('includes.alert-error')

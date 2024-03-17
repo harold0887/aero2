@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Internal;
+
 use Livewire\Component;
+use App\Models\Internal;
 
 class InternalRender extends Component
 {

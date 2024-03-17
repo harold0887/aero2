@@ -4,7 +4,6 @@
             <div class="col-12 border-bottom ">
                 <h4 class="m-0  text-center">Casos trabajados</h4>
             </div>
-
             <div class="col-12 ">
                 <div class="row  justify-content-between">
                     <div class="col-12 col-md-auto mt-2 align-self-center">
@@ -27,25 +26,20 @@
                         <div class="input-group no-border">
                             <input type="search" class="form-control" placeholder="Buscar por título..." wire:model.live='search'>
                             <div class="input-group-append">
-                                <div class="input-group-text" >
+                                <div class="input-group-text">
                                     <i class="nc-icon nc-zoom-split"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
         <div class="row ">
             @if (isset($casos) && $casos->count() > 0)
             <div class="col ">
                 <div class="card">
-
                     <div class="table-responsive  p-3 ">
-
                         @if($in_process > 0)
                         <span class="text-muted text-xxs d-block">
                             {{$in_process}} en proceso.
@@ -55,13 +49,7 @@
                         <span class="text-muted text-xxs d-block">
                             {{$pending}} pendiente con cliente.
                         </span>
-
-
                         @endif
-
-
-
-
                         <table id="datatable" class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
@@ -102,18 +90,11 @@
                                         @endif
                                     </th>
                                     <th>Solucion</th>
-
-
-
-
                                     <th>Notas</th>
                                     <th>Check</th>
-
                                     <th class="text-center">Acciones</th>
-
                                 </tr>
                             </thead>
-
                             <tbody>
                                 @foreach($casos as $caso)
                                 <tr>
@@ -180,36 +161,12 @@
 
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     </td>
-
-
-
-
-
-
                                     <td class="text-center">
                                         <div class="btn-group">
-
                                             <a href="{{ route('casos.edit',$caso->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit "><i class="material-icons">edit</i></a>
-
                                             <form method="post" action="{{ route('casos.destroy', $caso->id) }} ">
-                                                <input type="text" hidden value="{{$caso->case}}">
+                                                <input type="text" hidden value="el caso {{$caso->case}}">
                                                 <button class=" btn btn-danger btn-link btn-icon btn-sm remove show-alert-delete-case">
                                                     @csrf
                                                     @method('DELETE')
@@ -220,7 +177,6 @@
 
                                     </td>
                                 </tr>
-
                                 @endforeach
                             </tbody>
                         </table>
@@ -229,7 +185,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             @else
             <div class="col-12">
@@ -239,5 +194,3 @@
         </div>
     </div>
 </div>
-
-@include('includes.alert-error')

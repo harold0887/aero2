@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-12   col-md-5 mt-2 align-self-center">
                         <div class="input-group no-border">
-                            <input type="text" class="form-control" placeholder="Buscar por título..." wire:model="search">
+                            <input type="text" class="form-control" placeholder="Buscar por título..." wire:model.live='search'>
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <i class="nc-icon nc-zoom-split"></i>
@@ -42,14 +42,10 @@
             @if (isset($posts) && $posts->count() > 0)
             <div class="col ">
                 <div class="card">
-
                     <div class="table-responsive  p-md-4 " id="users-table">
                         <table id="datatable" class="table table-striped table-bordered " cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-
-
-
                                     <th scope="col" style="cursor:pointer" wire:click="setSort('title')">Título
                                         @if($sortField=='title')
                                         @if($sortDirection=='asc')
@@ -60,32 +56,21 @@
                                         @else
                                         <i class="fa-solid fa-sort mr-1"></i>
                                         @endif
-
                                     </th>
-
-
                                     <th scope="col">Acciones</th>
-
                                 </tr>
                             </thead>
-
                             <tbody>
                                 @foreach($posts as $post)
                                 <tr>
-
-
                                     <td>{{ $post->title }}</td>
-
-
-
-
                                     <td class="text-center">
                                         <div class="btn-group">
 
                                             <a href="{{ route('internal.edit',$post->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit "><i class="material-icons">edit</i></a>
 
                                             <form method="post" action="{{ route('internal.destroy', $post->id) }} ">
-                                                <input type="text" hidden  value="{{$post->title}}">
+                                                <input type="text" hidden  value="la plantilla {{$post->title}}">
                                                 <button class=" btn btn-danger btn-link btn-icon btn-sm remove show-alert-delete-internal">
                                                     @csrf
                                                     @method('DELETE')
@@ -105,7 +90,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             @else
             <div class="col-12">
@@ -116,4 +100,3 @@
     </div>
 </div>
 
-@include('includes.alert-error')
