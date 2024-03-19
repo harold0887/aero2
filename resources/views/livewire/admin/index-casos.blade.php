@@ -124,13 +124,21 @@
                                                 </div>
                                                 <div>
                                                     <label>
+                                                        <input class="form-check-input" type="checkbox" disabled {{ $caso->vuelo == 1 ? 'checked ' : '' }}>
+                                                        <span>Datos de vuelo</span>
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->tipificacion == 1 ? 'checked ' : '' }}>
                                                         <span>tipificacion</span>
                                                     </label>
                                                 </div>
 
+
                                             </div>
                                             <div class="col-auto">
+
                                                 <div>
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->soportes == 1 ? 'checked ' : '' }}>
@@ -149,9 +157,6 @@
                                                         <span>compensación</span>
                                                     </label>
                                                 </div>
-
-                                            </div>
-                                            <div class="col-auto">
                                                 <div>
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->contingencia == 1 ? 'checked ' : '' }}>
@@ -159,7 +164,9 @@
                                                     </label>
                                                 </div>
 
+
                                             </div>
+
                                         </div>
                                     </td>
                                     <td class="text-center">

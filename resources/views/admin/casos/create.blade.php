@@ -24,7 +24,7 @@
                         <form id="create-post-admin" action="{{ route('casos.store') }}" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="row">
-                                <div class="col-8">
+                                <div class="col-12 col-md-8">
                                     <div class="form-row ">
                                         <div class="form-group col-12 col-md-3">
                                             <label class="bmd-label-floating">Número de caso</label>
@@ -85,9 +85,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-4 border rounded">
-                                    <div class="row">
-                                        <div class="col-auto m-2">
+                                <div class="col-12 col-md-4 border rounded">
+                                    <div class="fom-row">
+                                        <div class="col-auto">
                                             <div>
                                                 <label>
                                                     <input class="form-check-input {{ $errors->has('cuenta') ? 'is-invalid' : '' }}" type="checkbox" name="cuenta" value="1" {{ old('cuenta') == 1 ? 'checked' : '' }}>
@@ -99,6 +99,12 @@
                                                 <label>
                                                     <input class="form-check-input {{ $errors->has('valor') ? 'is-invalid' : '' }}" type="checkbox" name="valor" value="1" {{ old('valor') == 1 ? 'checked' : '' }}>
                                                     <span>Valor del cliente</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label>
+                                                    <input class="form-check-input {{ $errors->has('vuelo') ? 'is-invalid' : '' }}" type="checkbox" name="vuelo" value="1" {{ old('vuelo') == 1 ? 'checked' : '' }}>
+                                                    <span>Datos de vuelo</span>
                                                 </label>
                                             </div>
                                             <div>
@@ -145,9 +151,18 @@
 
 
 
-                            <div class="col-sm-10 text-center mt-5">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                <button type="reset" class="btn">Cancelar</button>
+
+                            <div class="row">
+                                <div class="col-12 text-center mt-5">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="reset" class="btn">Cancelar</button>
+                                </div>
+                                <div class="col-12">
+                                    <span class="text-muted text-xxs d-block">
+                                        {{$casosDay}} casos cerrados el día de hoy.
+                                    </span>
+                                </div>
+
                             </div>
 
 

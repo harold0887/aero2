@@ -46,7 +46,7 @@
                                             <select class="form-control {{ $errors->has('status') ? ' is-invalid' : '' }}" name="status">
                                                 <option value="" disabled>Selecciona...</option>
                                                 @foreach($status as $item)
-                                                <option value=" {{ $item->id }}" @if(old('status')) {{ old('status') == $item->id ? 'selected' : '' }}  @else {{ $case->status_id == $item->id ? 'selected' : '' }} @endif  >
+                                                <option value=" {{ $item->id }}" @if(old('status')) {{ old('status') == $item->id ? 'selected' : '' }} @else {{ $case->status_id == $item->id ? 'selected' : '' }} @endif>
                                                     {{$item->status}}
                                                 </option>
                                                 @endforeach
@@ -89,43 +89,49 @@
                                         <div class="col-auto m-2">
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input {{ $errors->has('cuenta') ? 'is-invalid' : '' }}" type="checkbox" name="cuenta" value="1" {{$case->cuenta == 1 ? 'checked' : ''}}  {{ old('cuenta') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('cuenta') ? 'is-invalid' : '' }}" type="checkbox" name="cuenta" value="1" {{$case->cuenta == 1 ? 'checked' : ''}} {{ old('cuenta') == 1 ? 'checked' : '' }}>
                                                     <span>Cuenta</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input {{ $errors->has('valor') ? 'is-invalid' : '' }}" type="checkbox" name="valor" value="1" {{$case->valor == 1 ? 'checked' : ''}}  {{ old('valor') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('valor') ? 'is-invalid' : '' }}" type="checkbox" name="valor" value="1" {{$case->valor == 1 ? 'checked' : ''}} {{ old('valor') == 1 ? 'checked' : '' }}>
                                                     <span>Valor del cliente</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input {{ $errors->has('tipificacion') ? 'is-invalid' : '' }}" type="checkbox" name="tipificacion" value="1" {{$case->tipificacion == 1 ? 'checked' : ''}}  {{ old('tipificacion') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('vuelo') ? 'is-invalid' : '' }}" type="checkbox" name="vuelo" value="1" {{$case->vuelo == 1 ? 'checked' : ''}} {{ old('vuelo') == 1 ? 'checked' : '' }}>
+                                                    <span>Datos de vuelo</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <label>
+                                                    <input class="form-check-input {{ $errors->has('tipificacion') ? 'is-invalid' : '' }}" type="checkbox" name="tipificacion" value="1" {{$case->tipificacion == 1 ? 'checked' : ''}} {{ old('tipificacion') == 1 ? 'checked' : '' }}>
                                                     <span>Tipificacion</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input {{ $errors->has('soportes') ? 'is-invalid' : '' }}" type="checkbox" name="soportes" value="1" {{$case->soportes == 1 ? 'checked' : ''}}  {{ old('soportes') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('soportes') ? 'is-invalid' : '' }}" type="checkbox" name="soportes" value="1" {{$case->soportes == 1 ? 'checked' : ''}} {{ old('soportes') == 1 ? 'checked' : '' }}>
                                                     <span>Soportes</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input {{ $errors->has('duplicado') ? 'is-invalid' : '' }}" type="checkbox" name="duplicado" value="1" {{$case->duplicado == 1 ? 'checked' : ''}}  {{ old('duplicado') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('duplicado') ? 'is-invalid' : '' }}" type="checkbox" name="duplicado" value="1" {{$case->duplicado == 1 ? 'checked' : ''}} {{ old('duplicado') == 1 ? 'checked' : '' }}>
                                                     <span>Revisar duplicados</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input " type="checkbox" name="compensacion" value="1" {{$case->compensacion == 1 ? 'checked' : ''}}  {{ old('compensacion') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input " type="checkbox" name="compensacion" value="1" {{$case->compensacion == 1 ? 'checked' : ''}} {{ old('compensacion') == 1 ? 'checked' : '' }}>
                                                     <span>Compensación</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1" {{$case->contingencia == 1 ? 'checked' : ''}}  {{ old('contingencia') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1" {{$case->contingencia == 1 ? 'checked' : ''}} {{ old('contingencia') == 1 ? 'checked' : '' }}>
                                                     <span>Contingencia</span>
                                                 </label>
                                             </div>

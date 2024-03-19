@@ -27,13 +27,13 @@ class HomeController extends Controller
             ->where('user_id', Auth::user()->id)
             ->where('status_id', 1)
             ->count();
-            $pending = Caso::where('user_id', Auth::user()->id)
+        $pending = Caso::where('user_id', Auth::user()->id)
             ->where('status_id', 2)
             ->count();
         $in_process = Caso::where('user_id', Auth::user()->id)
             ->where('status_id', 3)
             ->count();
-        return view('dashboard', compact('casos','casosDay','pending', 'in_process'));
+        return view('dashboard', compact('casos', 'casosDay', 'pending', 'in_process'));
     }
     public function contactos()
     {
@@ -46,9 +46,12 @@ class HomeController extends Controller
     {
         $term = $request->get('term');
 
-        $query = Caso::where('solicitud', 'LIKE', '%' . $term . '%')
+        $result = Caso::where('solicitud', 'LIKE', '%' . $term . '%')
             ->orderBy('solicitud')
+            ->distinct('solicitud')
             ->get();
+
+        $query = $result->unique('solicitud');
 
         $data = [];
 
@@ -67,9 +70,11 @@ class HomeController extends Controller
     {
         $term = $request->get('term');
 
-        $query = Caso::where('solucion', 'LIKE', '%' . $term . '%')
+        $result = Caso::where('solucion', 'LIKE', '%' . $term . '%')
             ->orderBy('solucion')
             ->get();
+
+        $query = $result->unique('solucion');
 
         $data = [];
 

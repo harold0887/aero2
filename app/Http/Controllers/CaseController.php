@@ -29,7 +29,10 @@ class CaseController extends Controller
     {
         $status = Status::orderBy('status', 'desc')
             ->get();
-        return view('admin.casos.create', compact('status'));
+        $casosDay = Caso::where(function ($query) {
+            $query->whereDay('closed_at', date_format(now(), 'd'));
+        })->count();
+        return view('admin.casos.create', compact('status', 'casosDay'));
     }
 
     /**
@@ -53,6 +56,7 @@ class CaseController extends Controller
                 'solucion' => 'required',
                 'cuenta' => 'required',
                 'valor' => 'required',
+                'vuelo' => 'required',
                 'tipificacion' => 'required',
                 'soportes' => 'required',
                 'duplicado' => 'required',
@@ -137,6 +141,7 @@ class CaseController extends Controller
                 'solucion' => 'required',
                 'cuenta' => 'required',
                 'valor' => 'required',
+                'vuelo' => 'required',
                 'tipificacion' => 'required',
                 'soportes' => 'required',
                 'duplicado' => 'required',
