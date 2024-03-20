@@ -13,7 +13,7 @@ class IndexCasos extends Component
 {
 
     public $search = '';
-
+    public $status = 1;
     public $sortDirection = 'desc';
     public $sortField = 'created_at';
     use WithPagination;
@@ -30,6 +30,7 @@ class IndexCasos extends Component
                 ->orwhere('notas', 'like', '%' . $this->search . '%');
         })
             ->where('user_id', Auth::user()->id)
+            ->where('status_id', $this->status)
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate(500);
 
@@ -64,5 +65,10 @@ class IndexCasos extends Component
     public function clearSearch()
     {
         $this->search = "";
+    }
+
+    public function setStatus()
+    {
+        
     }
 }

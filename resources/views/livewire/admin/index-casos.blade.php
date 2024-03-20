@@ -13,6 +13,21 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-3  mt-2  align-self-center">
+                        <div class="input-group no-border">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <i class="material-icons">visibility</i>
+                                </div>
+                            </div>
+                            <select class="form-control" wire:model.change="status">
+                                <option value="1">Todos</option>
+                                <option value="2">Pendiente ({{$pending}})</option>
+                                <option value="3">En proceso ({{$in_process}})</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-md-3  mt-2  align-self-center">
                         @if ($search !='')
                         <div class="alert text-center alert-dismissible fade show m-0 py-0 text-primary" role="alert">
                             Borrar filtros
@@ -22,7 +37,7 @@
                         </div>
                         @endif
                     </div>
-                    <div class="col-12   col-md-5 mt-2 align-self-center">
+                    <div class="col-12   col-md-3 mt-2 align-self-center">
                         <div class="input-group no-border">
                             <input type="search" class="form-control" placeholder="Buscar por título..." wire:model.live='search'>
                             <div class="input-group-append">
@@ -35,21 +50,16 @@
                 </div>
             </div>
         </div>
+
         <div class="row ">
             @if (isset($casos) && $casos->count() > 0)
             <div class="col ">
                 <div class="card">
                     <div class="table-responsive  p-3 ">
-                        @if($in_process > 0)
-                        <span class="text-muted text-xxs d-block">
-                            {{$in_process}} en proceso.
-                        </span>
-                        @endif
-                        @if($pending > 0)
-                        <span class="text-muted text-xxs d-block">
-                            {{$pending}} pendiente con cliente.
-                        </span>
-                        @endif
+
+
+
+
                         <table id="datatable" class="table table-striped table-bordered ">
                             <thead>
                                 <tr>

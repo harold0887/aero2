@@ -16,7 +16,7 @@
                         @if ($search !='')
                         <div class="alert text-center alert-dismissible fade show m-0 py-0 text-primary" role="alert">
                             Borrar filtros
-                            <button type="button " class="close " data-dismiss="alert" aria-label="Close" wire:click="clearSearch()">
+                            <button type="button " class="close " data-dismiss="alert" aria-label="Close" wire:click.live="clearSearch()">
                                 <span class="text-danger" aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -78,6 +78,28 @@
                                         <i class="fa-solid fa-sort mr-1"></i>
                                         @endif
                                     </th>
+                                    <th scope="col" style="cursor:pointer" wire:click="setSort('created_at')">Creado
+                                        @if($sortField=='created_at')
+                                        @if($sortDirection=='asc')
+                                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                                        @else
+                                        <i class="fa-solid fa-arrow-up-z-a"></i>
+                                        @endif
+                                        @else
+                                        <i class="fa-solid fa-sort mr-1"></i>
+                                        @endif
+                                    </th>
+                                    <th scope="col" style="cursor:pointer" wire:click="setSort('updated_at')">Ultima modificacion
+                                        @if($sortField=='updated_at')
+                                        @if($sortDirection=='asc')
+                                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                                        @else
+                                        <i class="fa-solid fa-arrow-up-z-a"></i>
+                                        @endif
+                                        @else
+                                        <i class="fa-solid fa-sort mr-1"></i>
+                                        @endif
+                                    </th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -87,6 +109,8 @@
                                     <td>{{ $correo->email }}</td>
                                     <td>{{ $correo->area }}</td>
                                     <td>{{ $correo->comentario }}</td>
+                                    <td>{{ date_format($correo->created_at, 'd-M-Y')  }}</td>
+                                    <td>{{ date_format($correo->updated_at, 'd-M-Y')  }}</td>
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('correo.edit',$correo->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit "><i class="material-icons">edit</i></a>

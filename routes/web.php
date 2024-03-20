@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,11 @@ use App\Http\Controllers\Admin\ProfileAdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+  });
+  
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/internal', [HomeController::class, 'internal'])->name('internal');
