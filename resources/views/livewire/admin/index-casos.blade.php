@@ -19,10 +19,12 @@
                                     <i class="material-icons">visibility</i>
                                 </div>
                             </div>
-                            <select class="form-control" wire:model.change="status">
-                                <option value="1">Todos</option>
+                            <select class="form-control" wire:model.change="selectStatus" style="cursor:pointer">
+                                <option value="0">Todos</option>
+                                <option value="1">Cerrados ({{$closed}})</option>
                                 <option value="2">Pendiente ({{$pending}})</option>
                                 <option value="3">En proceso ({{$in_process}})</option>
+                                <option value="4">Otros ({{$other}})</option>
                             </select>
                         </div>
 
@@ -86,8 +88,30 @@
                                         @endif
                                         Status
                                     </th>
-                                    <th>Creado</th>
-                                    <th>Cerrado</th>
+                                    <th style="cursor:pointer" wire:click="setSort('created_at')" class="mx-auto">
+                                        @if($sortField=='created_at')
+                                        @if($sortDirection=='asc')
+                                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                                        @else
+                                        <i class="fa-solid fa-arrow-up-z-a"></i>
+                                        @endif
+                                        @else
+                                        <i class="fa-solid fa-sort"></i>
+                                        @endif
+                                        Creado
+                                    </th>
+                                    <th style="cursor:pointer" wire:click="setSort('closed_at')" class="mx-auto">
+                                        @if($sortField=='closed_at')
+                                        @if($sortDirection=='asc')
+                                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                                        @else
+                                        <i class="fa-solid fa-arrow-up-z-a"></i>
+                                        @endif
+                                        @else
+                                        <i class="fa-solid fa-sort"></i>
+                                        @endif
+                                        Cerrado
+                                    </th>
                                     <th style="cursor:pointer" wire:click="setSort('solicitud')">Solicitud
                                         @if($sortField=='solicitud')
                                         @if($sortDirection=='asc')

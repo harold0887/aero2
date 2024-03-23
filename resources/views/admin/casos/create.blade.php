@@ -127,13 +127,13 @@
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="compensación" value="1">
+                                                    <input class="form-check-input" type="checkbox" name="compensacion" value="1" {{ old('compensacion') == 1 ? 'checked' : '' }}>
                                                     <span>Compensación</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1">
+                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1" {{ old('contingencia') == 1 ? 'checked' : '' }}>
                                                     <span>Contingencia</span>
                                                 </label>
                                             </div>
