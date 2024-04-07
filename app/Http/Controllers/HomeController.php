@@ -87,4 +87,27 @@ class HomeController extends Controller
 
         return $data;
     }
+
+    //buscar soluciones
+    public function notas(Request $request)
+    {
+        $term = $request->get('term');
+
+        $result = Caso::where('notas', 'LIKE', '%' . $term . '%')
+            ->orderBy('notas')
+            ->get();
+
+        $query = $result->unique('notas');
+
+        $data = [];
+
+        foreach ($query as $q) {
+            $data[] = [
+                'label' => $q->notas,
+                'value' => $q->notas
+            ];
+        }
+
+        return $data;
+    }
 }

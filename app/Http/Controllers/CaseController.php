@@ -60,7 +60,12 @@ class CaseController extends Controller
                 'tipificacion' => 'required',
                 'soportes' => 'required',
                 'duplicado' => 'required',
+            ]);
+        }
 
+        if ($request->status == 3) {
+            $request->validate([
+                'contingencia' => 'required',
             ]);
         }
 

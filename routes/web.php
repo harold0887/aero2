@@ -29,6 +29,7 @@ Route::get('/contactos', [HomeController::class, 'contactos'])->name('contactos'
 
 Route::get('search/casos', [HomeController::class, 'search'])->name('search.casos');
 Route::get('search/solucion', [HomeController::class, 'solucion'])->name('solucion.casos');
+Route::get('search/notas', [HomeController::class, 'notas'])->name('notas.casos');
 
 
 Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

@@ -78,7 +78,7 @@
                                     <div class="form-row ">
                                         <div class="form-group col-md-12">
                                             <label for="nota">Notas (opcional)</label>
-                                            <textarea class=" form-control {{ $errors->has('nota') ? 'is-invalid' : '' }}" name="nota" value="">{{ old('nota') }}</textarea>
+                                            <textarea class=" form-control {{ $errors->has('nota') ? 'is-invalid' : '' }}" name="nota" value="" id="notas_create">{{ old('nota') }}</textarea>
                                             @error('nota')
                                             <small class="text-danger"> {{ $message }} </small>
                                             @enderror
@@ -127,14 +127,14 @@
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="compensacion" value="1" {{ old('compensacion') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('compensacion') ? 'is-invalid' : '' }}" type="checkbox" name="compensacion" value="1" {{ old('compensacion') == 1 ? 'checked' : '' }}>
                                                     <span>Compensación</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1" {{ old('contingencia') == 1 ? 'checked' : '' }}>
-                                                    <span>Contingencia</span>
+                                                    <input class="form-check-input {{ $errors->has('contingencia') ? 'is-invalid' : '' }}" type="checkbox" name="contingencia" value="1" {{ old('contingencia') == 1 ? 'checked' : '' }}>
+                                                    <span class="{{ $errors->has('contingencia') ? 'text-danger' : '' }}">Contingencia</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -217,6 +217,24 @@
         },
         select: function(event, ui) {
             $('#solucion_create').val(ui.item.value);
+        }
+    })
+    $("#notas_create").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: "{{route('notas.casos')}}",
+                dataType: 'json',
+                data: {
+                    term: request.term
+                },
+                success: function(data) {
+                    response(data)
+                },
+
+            })
+        },
+        select: function(event, ui) {
+            $('#notas_create').val(ui.item.value);
         }
     })
 </script>

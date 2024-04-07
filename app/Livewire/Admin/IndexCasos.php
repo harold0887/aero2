@@ -45,11 +45,12 @@ class IndexCasos extends Component
                 break;
         }
 
+        
 
 
         $casos = Caso::where(function ($query) {
             $query->where('solicitud', 'like', '%' . $this->search . '%')
-                ->orwhere('case', 'like', '%' . $this->search . '%')
+                ->orwhere('case', 'like', '%' . ltrim($this->search, "0") . '%')
                 ->orwhere('solucion', 'like', '%' . $this->search . '%')
                 ->orwhere('notas', 'like', '%' . $this->search . '%');
         })

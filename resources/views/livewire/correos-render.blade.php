@@ -16,9 +16,10 @@
                     </div>
                     @endif
                 </div>
+               
                 <div class="col-12   col-md-5 mt-2 align-self-center">
                     <div class="input-group no-border">
-                        <input type="text" class="form-control" placeholder="Buscar por área, email o comentario..." wire:model="search">
+                        <input type="text" class="form-control" placeholder="Buscar por área, email o comentario..." wire:model.live="search">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <i class="nc-icon nc-zoom-split"></i>
