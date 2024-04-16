@@ -22,7 +22,9 @@ class HomeController extends Controller
         $casos = Caso::where('user_id', Auth::user()->id)
             ->count();
         $casosDay = Caso::where(function ($query) {
-            $query->whereDay('closed_at', date_format(now(), 'd'));
+            $query->whereDay('closed_at', date_format(now(), 'd'))
+                ->whereMonth('closed_at', date_format(now(), 'm'))
+                ->whereYear('closed_at', date_format(now(), 'Y'));;
         })
             ->where('user_id', Auth::user()->id)
             ->where('status_id', 1)

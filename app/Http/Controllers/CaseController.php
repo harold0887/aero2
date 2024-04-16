@@ -30,8 +30,12 @@ class CaseController extends Controller
         $status = Status::orderBy('status', 'desc')
             ->get();
         $casosDay = Caso::where(function ($query) {
-            $query->whereDay('closed_at', date_format(now(), 'd'));
+            $query->whereDay('closed_at', date_format(now(), 'd'))
+                ->whereMonth('closed_at', date_format(now(), 'm'))
+                ->whereYear('closed_at', date_format(now(), 'Y'));
         })->count();
+
+
         return view('admin.casos.create', compact('status', 'casosDay'));
     }
 
