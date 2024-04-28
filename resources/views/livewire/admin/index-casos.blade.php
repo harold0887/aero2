@@ -100,6 +100,9 @@
                                         @endif
                                         Creado
                                     </th>
+                                    <th>
+                                        Días
+                                    </th>
                                     <th style="cursor:pointer" wire:click="setSort('closed_at')" class="mx-auto">
                                         @if($sortField=='closed_at')
                                         @if($sortDirection=='asc')
@@ -112,6 +115,7 @@
                                         @endif
                                         Cerrado
                                     </th>
+                                   
                                     <th style="cursor:pointer" wire:click="setSort('solicitud')">Solicitud
                                         @if($sortField=='solicitud')
                                         @if($sortDirection=='asc')
@@ -135,7 +139,15 @@
                                     <td>{{ $caso->case }}</td>
                                     <td>{{ $caso->status->status }}</td>
                                     <td>{{ date_format($caso->created_at,'d-M-y') }}</td>
+                                    <td>
+                                        @if($caso->closed_at == null)
+                                        {{ \Carbon\Carbon::createFromTimestamp(strtotime($caso->created_at))->diff(\Carbon\Carbon::now())->days}}
+                                        @else
+                                        0   
+                                        @endif
+                                    </td>
                                     <td>{{isset($caso->closed_at) ? \Carbon\Carbon::parse($caso->closed_at)->format('d-M-y')  :'' }}</td>
+
                                     <td>{{ $caso->solicitud }}</td>
                                     <td>{{ $caso->solucion }}</td>
 
@@ -168,17 +180,18 @@
                                                         <span>tipificacion</span>
                                                     </label>
                                                 </div>
-
-
-                                            </div>
-                                            <div class="col-auto">
-
                                                 <div>
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->soportes == 1 ? 'checked ' : '' }}>
                                                         <span>Soportes</span>
                                                     </label>
                                                 </div>
+
+
+                                            </div>
+                                            <div class="col-auto">
+
+                                                
                                                 <div>
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->duplicado == 1 ? 'checked ' : '' }}>
@@ -195,6 +208,12 @@
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->contingencia == 1 ? 'checked ' : '' }}>
                                                         <span>contingencia</span>
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label>
+                                                        <input class="form-check-input" type="checkbox" disabled {{ $caso->notification == 1 ? 'checked ' : '' }}>
+                                                        <span>Notificacion</span>
                                                     </label>
                                                 </div>
 

@@ -135,6 +135,12 @@
                                                     <span>Contingencia</span>
                                                 </label>
                                             </div>
+                                            <div>
+                                                <label>
+                                                    <input class="form-check-input" type="checkbox" name="notification" value="1" {{$case->notification == 1 ? 'checked' : ''}} {{ old('notification') == 1 ? 'checked' : '' }}>
+                                                    <span>Notificacion</span>
+                                                </label>
+                                            </div>
                                         </div>
 
 

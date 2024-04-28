@@ -137,6 +137,12 @@
                                                     <span class="{{ $errors->has('contingencia') ? 'text-danger' : '' }}">Contingencia</span>
                                                 </label>
                                             </div>
+                                            <div>
+                                                <label>
+                                                    <input class="form-check-input {{ $errors->has('notification') ? 'is-invalid' : '' }}" type="checkbox" name="notification" value="1" {{ old('notification') == 1 ? 'checked' : '' }}>
+                                                    <span class="{{ $errors->has('notification') ? 'text-danger' : '' }}">Notificacion a cliente</span>
+                                                </label>
+                                            </div>
                                         </div>
 
 

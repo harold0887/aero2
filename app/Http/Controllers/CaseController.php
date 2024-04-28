@@ -70,8 +70,10 @@ class CaseController extends Controller
         if ($request->status == 3) {
             $request->validate([
                 'contingencia' => 'required',
+                'notification' => 'required',
             ]);
         }
+        
 
 
 
@@ -88,6 +90,7 @@ class CaseController extends Controller
                 'duplicado' => request('duplicado') == 1 ? 1 : 0,
                 'compensacion' => request('compensacion') == 1 ? 1 : 0,
                 'contingencia' => request('contingencia') == 1 ? 1 : 0,
+                'notification' => request('notification') == 1 ? 1 : 0,
                 'notas' => isset($request->nota) ? $request->nota : null,
                 'solucion' => request('solucion'),
                 'status_id' => request('status'),
@@ -188,6 +191,7 @@ class CaseController extends Controller
                 'duplicado' => request('duplicado') == 1 ? 1 : 0,
                 'compensacion' => request('compensacion') == 1 ? 1 : 0,
                 'contingencia' => request('contingencia') == 1 ? 1 : 0,
+                'notification' => request('notification') == 1 ? 1 : 0,
                 'notas' => isset($request->nota) ? $request->nota : null,
                 'solucion' => request('solucion'),
                 'status_id' => request('status'),
