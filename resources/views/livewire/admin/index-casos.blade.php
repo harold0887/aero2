@@ -260,7 +260,7 @@
         var form = $("#form-delete-case");
         event.preventDefault();
         swal({
-            title: "¿Realmente quiere eliminar el grado: " + $name + "  ? ",
+            title: "¿Realmente quiere eliminar el caso: " + $name + "  ? ",
             type: "question",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
