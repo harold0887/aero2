@@ -115,7 +115,7 @@
                                         @endif
                                         Cerrado
                                     </th>
-                                   
+
                                     <th style="cursor:pointer" wire:click="setSort('solicitud')">Solicitud
                                         @if($sortField=='solicitud')
                                         @if($sortDirection=='asc')
@@ -143,7 +143,7 @@
                                         @if($caso->closed_at == null)
                                         {{ \Carbon\Carbon::createFromTimestamp(strtotime($caso->created_at))->diff(\Carbon\Carbon::now())->days}}
                                         @else
-                                        0   
+                                        0
                                         @endif
                                     </td>
                                     <td>{{isset($caso->closed_at) ? \Carbon\Carbon::parse($caso->closed_at)->format('d-M-y')  :'' }}</td>
@@ -191,7 +191,7 @@
                                             </div>
                                             <div class="col-auto">
 
-                                                
+
                                                 <div>
                                                     <label>
                                                         <input class="form-check-input" type="checkbox" disabled {{ $caso->duplicado == 1 ? 'checked ' : '' }}>
@@ -225,9 +225,9 @@
                                     <td class="text-center">
                                         <div class="btn-group">
                                             <a href="{{ route('casos.edit',$caso->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit "><i class="material-icons">edit</i></a>
-                                            <form method="post" action="{{ route('casos.destroy', $caso->id) }} ">
+                                            <form method="post" action="{{ route('casos.destroy', $caso->id) }} " id="form-delete-case">
                                                 <input type="text" hidden value="el caso {{$caso->case}}">
-                                                <button class=" btn btn-danger btn-link btn-icon btn-sm remove show-alert-delete-case">
+                                                <button class=" btn btn-danger btn-link btn-icon btn-sm remove show-alert-delete-case" onclick="confirmDeleteCase('{{ $caso->id }}', '{{ $caso->case }}')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <i class="material-icons ">close</i>
@@ -254,3 +254,24 @@
         </div>
     </div>
 </div>
+<script>
+    //Confirmar eliminar producto
+    function confirmDeleteCase($id, $name) {
+        var form = $("#form-delete-case");
+        event.preventDefault();
+        swal({
+            title: "¿Realmente quiere eliminar el grado: " + $name + "  ? ",
+            type: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!",
+        }).then((result) => {
+            if (result.value) {
+                form.submit();
+            } else {
+                swal("Cancelado", 'El registro está seguro :)', 'error');
+            }
+        });
+    }
+</script>

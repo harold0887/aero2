@@ -1,19 +1,29 @@
 @extends('layouts.app', [
 'class' => 'login-page',
-'backgroundImagePath' => 'img/bg/the-how-photographer.jpg',
+'backgroundImagePath' => 'img/bg/markus-spiske-187777.jpg',
+'folderActive' => '',
+'elementActive' => '',
 'title'=>'Password reset',
 'navbarClass'=>'navbar-transparent',
 'activePage'=>'login',
+
 ])
+
+@section('content')
+
+
 
 @section('content')
 <div class="content">
     <div class="container">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <div class="col-lg-5 col-md-6 ml-auto mr-auto">
             <div class="card card-login">
                 <div class="card-body ">
                     <div class="card-header ">
                         <h3 class="header text-center">{{ __('Reset Password') }}</h3>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-muted">Ingresa tu correo electrónico para recibir un link y reestablecer tu contarseña.</span>
                     </div>
 
                     @if (session('status'))
@@ -22,7 +32,7 @@
                     </div>
                     @endif
 
-                    <form class="form" method="POST" action="{{ route('password.email') }}">
+                    <form id="forgot-password" class="form" method="POST" action="{{ route('password.email') }}">
                         @csrf
 
                         <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
@@ -50,12 +60,10 @@
     </div>
 </div>
 @endsection
-@include('includes.alert-error')
-@push('scripts')
+@push('js')
 <script>
     $(document).ready(function() {
         demo.checkFullPageBackgroundImage();
     });
-
 </script>
 @endpush

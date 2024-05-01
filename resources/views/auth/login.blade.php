@@ -15,11 +15,7 @@
 
 
 <div class="content">
-    @if (session('status'))
-    <div class="alert alert-warning" role="alert">
-        {{ session('status') }}
-    </div>
-    @endif
+
 
     <div class="container" style="padding-bottom: 150px;">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">
@@ -92,8 +88,34 @@
     </div>
 </div>
 @endsection
+@if (session('status'))
+@push('js')
+<script>
+    $.notify({
+        icon: "check_circle",
+        message: "{{session('status')}}",
+    }, {
+        type: "success",
+        timer: 3000,
+        placement: {
+            from: "top",
+            align: "right",
+        },
+    });
+</script>
+@endpush
+@endif
 
 @push('js')
+<script>
+    $(document).ready(function() {
+        md.checkFullPageBackgroundImage();
+        setTimeout(function() {
+            // after 1000 ms we add the class animated to the login/register card
+            $('.card').removeClass('card-hidden');
+        }, 700);
+    });
+</script>
 <script>
     $(document).ready(function() {
         demo.checkFullPageBackgroundImage();

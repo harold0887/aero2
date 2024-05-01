@@ -73,7 +73,7 @@ class CaseController extends Controller
                 'notification' => 'required',
             ]);
         }
-        
+
 
 
 
@@ -158,6 +158,13 @@ class CaseController extends Controller
                 'soportes' => 'required',
                 'duplicado' => 'required',
 
+            ]);
+        }
+
+        if ($request->status == 3) {
+            $request->validate([
+                'contingencia' => 'required',
+                'notification' => 'required',
             ]);
         }
 

@@ -1,4 +1,4 @@
-<nav id="{{$navbarClass}}"  class="navbar navbar-expand-lg navbar-absolute fixed-top navbar navbar-dark {{$navbarClass}}">
+<nav id="{{$navbarClass}}" class="navbar navbar-expand-lg navbar-absolute fixed-top navbar navbar-dark {{$navbarClass}}">
     <div class="container ">
         <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -17,9 +17,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end " id="navigation">
             <ul class="navbar-nav">
+
+                @guest
+
+                <li class="nav-item   {{ $activePage == 'login' ? 'active':''}}">
+                    <a href="{{ route('login') }}" class="nav-link">
+                        <i class="nc-icon nc-tap-01"></i>{{ __('Login') }}
+                    </a>
+                </li>
+                @endif
                
-               
-               
+
+
+                
+
+                @auth
                 <li class="nav-item  {{ $activePage == 'home' ? 'active':''}} ">
                     <a href="{{route('home')}}" class="nav-link ">
                         <i class="nc-icon nc-single-02"></i>Cliente
@@ -40,18 +52,7 @@
                         <i class="nc-icon nc-layout-11"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-            
 
-                @guest
-                
-                <li class="nav-item   {{ $activePage == 'login' ? 'active':''}}">
-                    <a href="{{ route('login') }}" class="nav-link">
-                        <i class="nc-icon nc-tap-01"></i>{{ __('Login') }}
-                    </a>
-                </li>
-                @endif
-
-                @auth
                 <li class="nav-item  {{ $activePage == 'perfil' ? 'active':''}}  dropdown">
                     <a class="nav-link nav-link-icon" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="nc-icon nc-circle-10"></i>

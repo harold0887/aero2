@@ -50,7 +50,7 @@ function alertFloat(align, message, icon) {
 
 //activar modal al enviar, se cierra al retornar controlador
 function showModalLoad() {
-  $("#create-post-admin").submit(() => {
+  $("#create-post-admin, #forgot-password,#forgot-password-reset").submit(() => {
     $("#modal-spinner").modal("show");
   });
 }

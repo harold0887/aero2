@@ -33,7 +33,7 @@
 </head>
 
 <body class="{{ $class }}">
-
+@include('includes.spinner')
 
     @if (Route::is('dashboard','dashboard.*','post.*','internal.*','correo.*','casos.*'))
     @include('layouts.page_templates.admin')

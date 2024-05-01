@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-4 border rounded">
                                     <div class="row">
-                                        <div class="col-auto m-2">
+                                        <div class="col-auto mx-2">
                                             <div>
                                                 <label>
                                                     <input class="form-check-input {{ $errors->has('cuenta') ? 'is-invalid' : '' }}" type="checkbox" name="cuenta" value="1" {{$case->cuenta == 1 ? 'checked' : ''}} {{ old('cuenta') == 1 ? 'checked' : '' }}>
@@ -123,54 +123,40 @@
                                                     <span>Revisar duplicados</span>
                                                 </label>
                                             </div>
+
+                                        </div>
+                                        <div class="col-auto mx-2">
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input " type="checkbox" name="compensacion" value="1" {{$case->compensacion == 1 ? 'checked' : ''}} {{ old('compensacion') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('compensacion') ? 'is-invalid' : '' }} " type="checkbox" name="compensacion" value="1" {{$case->compensacion == 1 ? 'checked' : ''}} {{ old('compensacion') == 1 ? 'checked' : '' }}>
                                                     <span>Compensación</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="contingencia" value="1" {{$case->contingencia == 1 ? 'checked' : ''}} {{ old('contingencia') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('contingencia') ? 'is-invalid' : '' }}" type="checkbox" name="contingencia" value="1" {{$case->contingencia == 1 ? 'checked' : ''}} {{ old('contingencia') == 1 ? 'checked' : '' }}>
                                                     <span>Contingencia</span>
                                                 </label>
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input class="form-check-input" type="checkbox" name="notification" value="1" {{$case->notification == 1 ? 'checked' : ''}} {{ old('notification') == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input {{ $errors->has('notification') ? 'is-invalid' : '' }}" type="checkbox" name="notification" value="1" {{$case->notification == 1 ? 'checked' : ''}} {{ old('notification') == 1 ? 'checked' : '' }}>
                                                     <span>Notificacion</span>
                                                 </label>
                                             </div>
                                         </div>
-
-
-
                                     </div>
-
                                 </div>
-
                             </div>
-
-
-
-
-
                             <div class="col-sm-10 text-center mt-5">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <button type="reset" class="btn">Cancelar</button>
                             </div>
-
-
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 @endsection

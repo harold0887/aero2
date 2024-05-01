@@ -86,8 +86,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 border rounded">
-                                    <div class="fom-row">
-                                        <div class="col-auto">
+                                    <div class="row ">
+                                        <div class="col-auto mx-2">
                                             <div>
                                                 <label>
                                                     <input class="form-check-input {{ $errors->has('cuenta') ? 'is-invalid' : '' }}" type="checkbox" name="cuenta" value="1" {{ old('cuenta') == 1 ? 'checked' : '' }}>
@@ -125,6 +125,9 @@
                                                     <span>Revisar duplicados</span>
                                                 </label>
                                             </div>
+
+                                        </div>
+                                        <div class="col-auto mx-2">
                                             <div>
                                                 <label>
                                                     <input class="form-check-input {{ $errors->has('compensacion') ? 'is-invalid' : '' }}" type="checkbox" name="compensacion" value="1" {{ old('compensacion') == 1 ? 'checked' : '' }}>
