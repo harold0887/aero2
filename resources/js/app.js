@@ -7,7 +7,10 @@ $(function () {
   confirmDeleteCase();
   confirmDeleteEmail();
   copy();
+ 
 
+ 
+  
 
 });
 
