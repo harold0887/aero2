@@ -48,7 +48,7 @@
         </div>
         <div class="form-group col-auto">
             <label>Apellido</label>
-            <input type="text" class="form-control text-capitalize" wire:model="lastName" id="last-name" >
+            <input type="text" class="form-control" wire:model="lastName" id="last-name" >
             @error('lastName')
             <small class=" text-danger"> {{ $message }} </small>
             @enderror
