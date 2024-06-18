@@ -4,6 +4,24 @@
 
 
     <div class="row">
+        <div class="form-group col-auto">
+            <label>Apellido</label>
+            <input type="text" class="form-control" wire:model="lastName" id="last-name">
+            @error('lastName')
+            <small class=" text-danger"> {{ $message }} </small>
+            @enderror
+        </div>
+        <div class="form-group col-auto">
+            <label>Genero</label>
+            <select class="form-control" wire:model="genero">
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="01">Male</option>
+                <option value="02">Female</option>
+            </select>
+            @error('genero')
+            <small class=" text-danger"> {{ $message }} </small>
+            @enderror
+        </div>
 
         <div class="form-group col-3">
             <div class="search-box">
@@ -35,24 +53,7 @@
                 @endif
             </div>
         </div>
-        <div class="form-group col-auto">
-            <label>Genero</label>
-            <select class="form-control" wire:model="genero">
-                <option value="" disabled selected>Selecciona...</option>
-                <option value="01">Male</option>
-                <option value="02">Female</option>
-            </select>
-            @error('genero')
-            <small class=" text-danger"> {{ $message }} </small>
-            @enderror
-        </div>
-        <div class="form-group col-auto">
-            <label>Apellido</label>
-            <input type="text" class="form-control" wire:model="lastName" id="last-name" >
-            @error('lastName')
-            <small class=" text-danger"> {{ $message }} </small>
-            @enderror
-        </div>
+
 
 
     </div>
@@ -77,7 +78,7 @@
         @if(isset($message) && $message !=null)
 
         <div class="col-auto pr-1">
-         
+
             <button class="btn btn-link" data-clipboard-target="#messageMain" data-toggle="tooltip" data-placement="left" title="Copiar">
                 <i class="material-icons text-danger ">content_copy</i>
             </button>
@@ -100,7 +101,7 @@
         <div class="col-10 border rounded py-2 bg-white contenido-texto" id="messageMain">
             @if($genero=='01')
             <p>Estimado Sr. {{$lastName}},</p>
-            
+
             @elseif($genero=='02')
             <p>Estimada Srta. {{$lastName}},</p>
             @endif
@@ -117,9 +118,9 @@
             <br>
         </div>
         <div class="col-auto">
-        <a href="{{ route('post.edit',$message->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit " target="_blank" data-toggle="tooltip" data-placement="left" title="Editar"><i class="material-icons">edit</i></a>
+            <a href="{{ route('post.edit',$message->id) }}" class="btn btn-info btn-link btn-icon btn-sm edit " target="_blank" data-toggle="tooltip" data-placement="left" title="Editar"><i class="material-icons">edit</i></a>
         </div>
-    
+
 
         @endif
 
