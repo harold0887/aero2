@@ -4,25 +4,6 @@
 
 
     <div class="row">
-        <div class="form-group col-auto">
-            <label>Apellido</label>
-            <input type="text" class="form-control" wire:model="lastName" id="last-name">
-            @error('lastName')
-            <small class=" text-danger"> {{ $message }} </small>
-            @enderror
-        </div>
-        <div class="form-group col-auto">
-            <label>Genero</label>
-            <select class="form-control" wire:model="genero">
-                <option value="" disabled selected>Selecciona...</option>
-                <option value="01">Male</option>
-                <option value="02">Female</option>
-            </select>
-            @error('genero')
-            <small class=" text-danger"> {{ $message }} </small>
-            @enderror
-        </div>
-
         <div class="form-group col-3">
             <div class="search-box">
                 <label>Plantilla</label>
@@ -53,6 +34,26 @@
                 @endif
             </div>
         </div>
+        <div class="form-group col-auto">
+            <label>Genero</label>
+            <select class="form-control" wire:model="genero">
+                <option value="" disabled selected>Selecciona...</option>
+                <option value="01">Male</option>
+                <option value="02">Female</option>
+            </select>
+            @error('genero')
+            <small class=" text-danger"> {{ $message }} </small>
+            @enderror
+        </div>
+        <div class="form-group col-auto">
+            <label>Apellido</label>
+            <input type="text" class="form-control" wire:model="lastName" id="last-name">
+            @error('lastName')
+            <small class=" text-danger"> {{ $message }} </small>
+            @enderror
+        </div>
+
+
 
 
 
