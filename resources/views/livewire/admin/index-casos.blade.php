@@ -59,9 +59,6 @@
                 <div class="card">
                     <div class="table-responsive  p-3 ">
 
-
-
-
                         <table id="datatable" class="table table-striped table-bordered ">
                             <thead>
                                 <tr>
