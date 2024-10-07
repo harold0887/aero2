@@ -4,8 +4,8 @@
 <head>
 
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/aero.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('img/aero.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <title>
@@ -33,7 +33,7 @@
 </head>
 
 <body class="{{ $class }}">
-@include('includes.spinner')
+    @include('includes.spinner')
 
     @if (Route::is('dashboard','dashboard.*','post.*','internal.*','correo.*','casos.*'))
     @include('layouts.page_templates.admin')
@@ -116,12 +116,12 @@
     <!-- clipboard -->
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
 
- 
+
 
     <!-- jquery-ui-search -->
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
 
-  
+
 
     @stack('js')
 

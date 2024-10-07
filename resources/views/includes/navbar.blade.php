@@ -8,7 +8,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="{{route('home')}}" style="color:#51cbce !important">Plantillas</a>
+
         </div>
         <button class="navbar-toggler btn-primary" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -26,10 +26,10 @@
                     </a>
                 </li>
                 @endif
-               
 
 
-                
+
+
 
                 @auth
                 <li class="nav-item  {{ $activePage == 'home' ? 'active':''}} ">

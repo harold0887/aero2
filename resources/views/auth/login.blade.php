@@ -1,6 +1,6 @@
 @extends('layouts.app', [
 'class' => 'login-page',
-'backgroundImagePath' => 'img/bg/markus-spiske-187777.jpg',
+'backgroundImagePath' => 'img/bg/jan-sendereks.jpg',
 'folderActive' => '',
 'elementActive' => '',
 'title'=>'Login',
